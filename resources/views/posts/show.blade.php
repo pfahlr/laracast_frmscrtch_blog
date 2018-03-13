@@ -17,6 +17,7 @@
       @endforeach
       </ul>
     </div>
+    @if(Auth::check())
     <div class="card">
       <div class="card-group">
         <form method="post" action="{{ route('store_comment',['post'=>$post->id]) }}">
@@ -30,7 +31,7 @@
         </form>
       </div>
     </div>
-
+    @endif
   </div>
 
 @endsection
