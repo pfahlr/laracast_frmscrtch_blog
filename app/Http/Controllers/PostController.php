@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Post;
 use App\Repositories\Posts;
+use App\Billing\Stripe;
 
 class PostController extends Controller
 {
@@ -15,8 +16,9 @@ class PostController extends Controller
       $this->middleware('auth')->except(['index','show']);
     }
 
-    public function index(Posts $posts) {
+    public function index(Posts $posts, Stripe $stripe) {
 
+      dd($stripe);
       /*
       $posts = Post::latest()
         ->filter(request(['month', 'year']))
